@@ -36,7 +36,7 @@ public class Contract {
 
     private String comment;
 
-    private Company company;
+    //private Company company;
 
     private Boolean active;
 }

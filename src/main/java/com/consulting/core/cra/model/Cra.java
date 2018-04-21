@@ -31,5 +31,5 @@ public class Cra {
 
     private Long status;
 
-    private Contract contract;
+    //private Contract contract;
 }

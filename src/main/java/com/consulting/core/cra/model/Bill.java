@@ -3,6 +3,8 @@ package com.consulting.core.cra.model;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * A Bill: Facture
@@ -16,7 +18,11 @@ import javax.persistence.Entity;
 @EqualsAndHashCode
 public class Bill {
 
-    private Cra cra;
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    //private Cra cra;
     private Long tva;
     private Boolean paid;
     private Long globalAmount;
