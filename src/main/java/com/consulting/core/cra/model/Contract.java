@@ -39,4 +39,5 @@ public class Contract {
     //private Company company;
 
     private Boolean active;
+
 }

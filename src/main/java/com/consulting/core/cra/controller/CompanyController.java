@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 /**
  * Created by nizaraouissaoui on 21/04/2018.
  */
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/")
 public class CompanyController {
@@ -51,7 +51,7 @@ public class CompanyController {
 
     @RequestMapping(value = "client/{id}", method = RequestMethod.PUT)
     public Company updateCompany(@PathVariable(value = "id") String companyId,
-                              @Valid @RequestBody Company companyDetails) {
+                                 @Valid @RequestBody Company companyDetails) {
 
         Company company = repository.findById(Long.parseLong(companyId))
                 .orElseThrow(() -> new ResourceNotFoundException("companyId"));
