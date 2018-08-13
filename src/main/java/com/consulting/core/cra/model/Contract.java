@@ -2,10 +2,9 @@ package com.consulting.core.cra.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -36,8 +35,13 @@ public class Contract {
 
     private String comment;
 
-    //private Company company;
-
     private Boolean active;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Company> companies;
+
+    @ManyToOne
+    @JoinColumn(name = "company_cra_id")
+    private Cra cra;
 
 }

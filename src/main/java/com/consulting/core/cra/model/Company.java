@@ -2,9 +2,7 @@ package com.consulting.core.cra.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * A Company: le client
@@ -31,5 +29,9 @@ public class Company {
     private String emailBill;
 
     private String emailContrat;
+
+    @ManyToOne
+    @JoinColumn(name = "company_contrat_id")
+    private Contract contract;
 
 }

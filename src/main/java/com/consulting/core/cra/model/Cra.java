@@ -2,10 +2,10 @@ package com.consulting.core.cra.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.Month;
+import java.util.List;
 
 /**
  * A CRA
@@ -17,7 +17,7 @@ import java.time.Month;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class Cra {
+public class Cra  {
 
     @Id
     @GeneratedValue
@@ -29,7 +29,12 @@ public class Cra {
 
     private Long days;
 
-    private Long status;
+    private String status;
 
-    //private Contract contract;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Contract> contracts;
+
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "cra_bill_id")
+    private Bill bill;
 }

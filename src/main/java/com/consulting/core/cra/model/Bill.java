@@ -2,9 +2,7 @@ package com.consulting.core.cra.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * A Bill: Facture
@@ -26,6 +24,11 @@ public class Bill {
     private Long tva;
     private Boolean paid;
     private Long globalAmount;
+
+    /*@OneToOne(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL,
+            mappedBy = "bill")
+    private Cra cra;*/
 
 
 }

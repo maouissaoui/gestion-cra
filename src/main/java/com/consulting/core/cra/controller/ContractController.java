@@ -23,20 +23,20 @@ public class ContractController {
     @Autowired
     private ContratRepository contratRepository;
 
-//get all
+    //get all
     @RequestMapping(value = "contrats", method = RequestMethod.GET)
     public Collection<Contract> getContrats() {
         return contratRepository.findAll().stream()
                 .collect(Collectors.toList());
     }
 
-//post
+    //post
     @RequestMapping(value = "contrat", method = RequestMethod.POST)
     public Contract addContract(@Valid @RequestBody Contract contract) {
         return contratRepository.save(contract);
     }
 
-//get by id
+    //get by id
     @RequestMapping("contrats/{id}")
     public Contract getContractById(@PathVariable(value = "id") Long contractId) {
         return contratRepository.findById(contractId)
@@ -52,7 +52,7 @@ public class ContractController {
             contratRepository.deleteById(id);
         }
     }
-//update
+    //update
     @RequestMapping(value = "contrat/{id}", method = RequestMethod.PUT)
     public Contract updateContract (@PathVariable(value = "id") String contractId,
                                  @Valid @RequestBody Contract contractDetails) {
